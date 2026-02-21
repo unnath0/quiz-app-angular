@@ -1,0 +1,29 @@
+section {
+  width: 220px;
+  background-color: #e8edf5;
+  margin: 10px 10px 10px 0;
+  padding: 20px;
+  border-right: 1px solid #cfd6e4;
+  height: 90vh;
+  box-sizing: border-box;
+}
+
+section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+section li {
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background-color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-align: center;
+}
+
+section li:hover {
+  background-color: #d6def5;
+}

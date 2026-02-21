@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, input, output, Signal } from '@angular/core';
 
 @Component({
   selector: 'app-categories',
@@ -6,4 +6,12 @@ import { Component } from '@angular/core';
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css',
 })
-export class CategoriesComponent {}
+export class CategoriesComponent {
+  categories = input.required<string[]>();
+
+  selectedCategory = output<string>();
+
+  onSelectCategory(category: string) {
+    this.selectedCategory.emit(category);
+  }
+}

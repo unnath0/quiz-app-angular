@@ -1,1 +1,7 @@
-<p>categories.component works!</p>
+<section>
+  <ul>
+    @for (category of categories(); track $index) {
+      <li (click)="onSelectCategory(category)">{{ category }}</li>
+    }
+  </ul>
+</section>
