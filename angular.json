@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "quiz-app": {
+    "quiz-app-angular": {
       "projectType": "application",
       "schematics": {},
       "root": "",
