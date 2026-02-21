@@ -2,7 +2,11 @@
   <p>Total number of questions: {{ questions().length }}</p>
 
   @for (question of questions(); track question.id) {
-    <app-question [question]="question" [isSubmitted]="isSubmitted()" />
+    <app-question
+      [question]="question"
+      [isSubmitted]="isSubmitted()"
+      (optionChanged)="onOptionChange()"
+    />
   }
 
   <div>

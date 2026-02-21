@@ -1,4 +1,4 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 
 import { Question } from '../../../models/question.model';
 import { QuestionService } from '../../../services/question.service';
@@ -17,8 +17,10 @@ export class QuestionComponent {
 
   isSubmitted = input<boolean>();
 
+  optionChanged = output();
+
   onSelectOption(id: number) {
     this.questionService.addSelectedOptionToQuestion(this.question().id, id);
-    this.questionService.isSubmitted.set(false);
+    this.optionChanged.emit();
   }
 }

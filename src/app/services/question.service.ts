@@ -1,19 +1,12 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Question } from '../models/question.model';
 import { DUMMY_QUESTIONS } from '../components/questions/dummy-questions';
-
-interface Result {
-  score: number;
-  result: string[];
-}
 
 @Injectable({
   providedIn: 'root',
 })
 export class QuestionService {
   private questions = signal<Question[]>(DUMMY_QUESTIONS);
-
-  isSubmitted = signal<boolean>(false);
 
   getCategories(): string[] {
     const categories = this.questions().map((q) => q.category);
@@ -33,8 +26,6 @@ export class QuestionService {
   }
 
   getScore(category: string) {
-    this.isSubmitted.set(true);
-
     return this.questions().filter(
       (q) => q.category === category && q.correctAnswerIndex === q.selectedAnswerIndex,
     ).length;

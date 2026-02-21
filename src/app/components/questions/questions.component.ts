@@ -1,4 +1,4 @@
-import { Component, inject, input, signal } from '@angular/core';
+import { Component, effect, inject, input, signal } from '@angular/core';
 import { QuestionComponent } from './question/question.component';
 
 import { Question } from '../../models/question.model';
@@ -18,9 +18,23 @@ export class QuestionsComponent {
 
   result = signal<number>(0);
 
-  isSubmitted = this.questionService.isSubmitted;
+  isSubmitted = signal(false);
+
+  constructor() {
+    effect(() => {
+      const questions = this.questions();
+      if (questions.length) this.isSubmitted.set(false);
+    });
+  }
 
   onSubmit() {
+    if (!this.questions().length) return;
+
+    this.isSubmitted.set(true);
     this.result.set(this.questionService.getScore(this.questions()[0].category));
+  }
+
+  onOptionChange() {
+    this.isSubmitted.set(false);
   }
 }
