@@ -1,7 +1,7 @@
 export interface Question {
   id: number;
   category: string;
-  title: string;
+  question: string;
   options: string[];
   correctAnswerIndex: number;
   selectedAnswerIndex?: number;
