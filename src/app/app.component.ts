@@ -30,5 +30,6 @@ export class App {
 
   onSelectedCategory(category: string) {
     this.selectedCategory.set(category);
+    this.questionService.isSubmitted.set(false);
   }
 }

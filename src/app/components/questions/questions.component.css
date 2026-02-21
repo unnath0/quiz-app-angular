@@ -1,0 +1,35 @@
+section {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+}
+
+section > p {
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0;
+}
+
+section button[type='submit'] {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #3f51b5;
+  color: white;
+  transition: 0.2s ease;
+  display: inline;
+  width: 100px;
+}
+
+section button[type='submit']:hover {
+  background-color: #2f3fa3;
+}
+
+section div {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}

@@ -1,1 +1,14 @@
-<p>questions.component works!</p>
+<section>
+  <p>Total number of questions: {{ questions().length }}</p>
+
+  @for (question of questions(); track question.id) {
+    <app-question [question]="question" [isSubmitted]="isSubmitted()" />
+  }
+
+  <div>
+    <button type="submit" (click)="onSubmit()">Submit</button>
+    @if (isSubmitted()) {
+      <p>Score: {{ result() }}</p>
+    }
+  </div>
+</section>

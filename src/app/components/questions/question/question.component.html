@@ -1,1 +1,23 @@
-<p>question.component works!</p>
+<div class="question">
+  <h2>{{ question().question }}</h2>
+
+  <div class="options">
+    @for (option of question().options; track $index) {
+      <button
+        type="button"
+        (click)="onSelectOption($index)"
+        [class.selected]="question().selectedAnswerIndex === $index"
+      >
+        {{ option }}
+      </button>
+    }
+  </div>
+
+  @if (isSubmitted()) {
+    @if (question().selectedAnswerIndex === question().correctAnswerIndex) {
+      <p>Correct</p>
+    } @else {
+      <p>Incorrect</p>
+    }
+  }
+</div>

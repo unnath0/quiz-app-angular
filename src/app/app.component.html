@@ -5,7 +5,7 @@
 
   <main>
     @if (selectedCategory()) {
-      <app-questions />
+      <app-questions [questions]="questionsForCategory()!" />
     } @else {
       <h2>Select a category to display questions</h2>
     }
