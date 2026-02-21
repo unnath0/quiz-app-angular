@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { effect, Injectable, signal } from '@angular/core';
 import { Question } from '../models/question.model';
 import { DUMMY_QUESTIONS } from '../components/questions/dummy-questions';
 
@@ -7,6 +7,18 @@ import { DUMMY_QUESTIONS } from '../components/questions/dummy-questions';
 })
 export class QuestionService {
   private questions = signal<Question[]>(DUMMY_QUESTIONS);
+
+  constructor() {
+    const questions = localStorage.getItem('questions');
+
+    if (questions) {
+      this.questions.set(JSON.parse(questions));
+    }
+
+    effect(() => {
+      localStorage.setItem('questions', JSON.stringify(this.questions()));
+    });
+  }
 
   getCategories(): string[] {
     const categories = this.questions().map((q) => q.category);
