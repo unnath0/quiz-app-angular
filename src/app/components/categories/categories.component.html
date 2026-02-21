@@ -1,6 +1,6 @@
 <section>
   <ul>
-    @for (category of categories(); track $index) {
+    @for (category of categories(); track category) {
       <li (click)="onSelectCategory(category)">{{ category }}</li>
     }
   </ul>

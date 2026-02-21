@@ -1,0 +1,13 @@
+.layout {
+  display: flex;
+  gap: 20px;
+  padding-top: 10px;
+}
+
+app-categories {
+  flex: 0 0 220px;
+}
+
+main {
+  flex: 1;
+}

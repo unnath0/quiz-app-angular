@@ -1,7 +1,8 @@
-import { Component, inject, input, output, Signal } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-categories',
+  standalone: true,
   imports: [],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css',
